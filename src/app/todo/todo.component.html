@@ -1,0 +1,36 @@
+<div class="k-block">
+    <button kendoButton [look]="'default'">Default Button</button>
+    <button kendoButton [look]="'outline'">Outline Button</button>
+    <button kendoButton [look]="'bare'">Bare Button</button>
+    <button kendoButton [disabled]="true">Button</button>
+  </div>
+
+  <button kendoButton [primary]="true">Primary Action</button>
+  <button kendoButton [togglable]="true">toggle</button>
+
+  <kendo-buttongroup [width]="40" look="bare">
+    <button kendoButton [icon]="'user'" [togglable]="true">user</button>
+    <button kendoButton [icon]="'check'" [togglable]="true">check</button>
+    <button kendoButton [icon]="'calendar'" [togglable]="true">DOB</button>
+  </kendo-buttongroup>
+
+  <div @todoAnimations>
+    <h1>What good shall i do today</h1>
+    <input kendotypeBox
+            type="text"
+            placeholder="Add a todo item"
+            class="new-todo-item"
+            #itemInput
+            (keyup.enter)="addTodo(itemInput)">
+
+    <div *ngIf = "todos" class="list-group">
+      <button kendoButton @todoItem
+        type="button"
+        class="todo"
+        *ngFor = "let todo of todos; index as i">
+        <span (click)= "removeTodo(i)">{{todo.item}}</span>
+      </button>
+
+    </div>
+    <div *ngIf = "todos.length == 0" class="finished-list">finish</div>
+  </div>

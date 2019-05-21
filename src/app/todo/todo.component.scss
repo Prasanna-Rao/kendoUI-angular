@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Handlee&display=swap');
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host > * {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+}
+
+.new-todo-item {
+  width: 70%;
+  padding: 15px 5px; 
+  border: 2px solid;
+  border-color: darkgray;
+  
+
+
+}
+    
+h1 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  .new-todo-input, .todo {
+    padding: 0;
+    width: 95%;
+    display: block;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+  }
+  
+  .new-todo-input {
+    margin: 25px;
+    height: 50px;
+  }
+  
+  .todo {
+    display: flex;
+    // justify-content: space-between;
+  
+    align-content: center;
+    margin-bottom: -10px;
+    height: 40px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: black;
+    
+    transition: 125ms ease background-color;
+  
+    &:hover {
+      background-image: none;
+      color:hsl(0, 40%, 98%);
+    }
+  
+    span:hover {
+      text-decoration: line-through;
+    }
+  }
+  
+  $todos: 45;
+  @for $i from 1 through $todos {
+    .todo:nth-last-child(#{$i}n) {
+      background-color: hsl((360deg / $todos * $i), 75%, 75%);
+    }
+  }
+
+  .finished-list {
+    
+    text-align: center;
+    font-size: 60px;
+    font-weight: 100;
+  }
+      
